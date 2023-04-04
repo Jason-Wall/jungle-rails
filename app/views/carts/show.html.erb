@@ -4,6 +4,13 @@
     <h1>My Cart</h1>
   </header>
 
+<% if enhanced_cart.length == 0%>
+<div class="empty-cart">
+  <div class="fs-3">Looks like there are no items in your cart</div>
+  <%= link_to "Let's find some plants!", root_path, class:["fs-4", "text-decoration-underline", "text-success"]%>
+</div>
+<% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +55,6 @@
       <% end %>
     </div>
   </div>
+<% end %>
 
 </section>
