@@ -9,6 +9,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark sticky-nav">
   <div class="container">
     <a class="navbar-brand" href="<%= root_path %>">Jungle</a>
+    <div class ="d-flex">
     <button
       class="navbar-toggler"
       type="button"
@@ -20,6 +21,7 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <%# <li class="nav-item dropdown">
@@ -67,6 +69,7 @@
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>
         </li>
+        <li><%= link_to "Login", root_path, class: "nav-link" %></li>
       </ul>
     </div>
   </div>
