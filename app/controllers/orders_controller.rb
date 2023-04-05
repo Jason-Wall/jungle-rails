@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authorize
   
-  before_filter :authorize
 
   def show
     @order = Order.find(params[:id])
@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     charge = perform_stripe_charge
     order  = create_order(charge)
 
