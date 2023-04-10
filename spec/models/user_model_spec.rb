@@ -57,4 +57,31 @@ RSpec.describe User, type: :model do
         expect(User.count).to eq(0)
       end
     end
+
+    describe '#authenticate_with_credentials'do
+      it 'returns a user if password is correct'do
+        user = User.create(
+        first_name: 'John',
+        last_name: 'Doe',
+        email: 'test@test.com',
+        password: 'tests',
+        password_confirmation: 'tests'
+        )
+        user_test = User.authenticate_with_credentials('test@test.com', 'tests')
+        expect(user_test).to be_a(User)
+      end
+
+
+      it 'returns nil if password is incorrect'do
+        user = User.create(
+          first_name: 'John',
+          last_name: 'Doe',
+          email: 'test@test.com',
+          password: 'tests',
+          password_confirmation: 'tests'
+        )
+        user_test = User.authenticate_with_credentials('test@test.com', 'bad password')
+        expect(user_test).to be(nil)
+      end  
+    end
   end
