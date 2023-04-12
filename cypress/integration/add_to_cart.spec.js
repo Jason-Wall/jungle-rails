@@ -16,8 +16,6 @@ describe('Add to cart', () => {
     cy.get('a').contains('My Cart (1)');
   });
 
-
-
 }
 
 );
