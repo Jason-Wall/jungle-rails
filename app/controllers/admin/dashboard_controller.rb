@@ -5,7 +5,7 @@ class Admin::DashboardController < ApplicationController
   def show
     @categories = Category
     .select('categories.*, COUNT(products.*) as products_count')
-    .joins(:products)
+    .left_outer_joins(:products)
     .group('categories.id')
     @category_count = Category.count
     
